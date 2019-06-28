@@ -2,6 +2,8 @@
 
 DiDi VirtualAPK framework Demo Best Practice.
 
+[Download example apk](https://raw.githubusercontent.com/xinpengfei520/VirtualAPKDemo/master/release/app-release.apk)
+
 ## Usage
 
 1. Host Project buildRelease apk package;
