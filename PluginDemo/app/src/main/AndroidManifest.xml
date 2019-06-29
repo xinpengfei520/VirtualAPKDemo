@@ -3,12 +3,20 @@
     package="com.xpf.android.virtualapkplugin">
 
     <application
+        android:name=".PluginApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service
+            android:name=".aidl.BookManagerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote" />
+
+        <activity android:name=".aidl.BookManagerActivity" />
         <activity android:name=".PluginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
