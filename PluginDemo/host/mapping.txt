@@ -22373,31 +22373,38 @@ com.xpf.android.virtualapk.MainActivity -> com.xpf.android.virtualapk.MainActivi
     com.xpf.android.virtualapk.download.DownloadService$DownloadBinder downloadBinder -> e
     android.widget.Button btnJump -> f
     android.widget.Button btnDownload -> g
-    android.content.ServiceConnection connection -> h
-    24:33:void <init>() -> <init>
-    48:64:void onCreate(android.os.Bundle) -> onCreate
-    67:81:void initListener() -> b
-    84:101:void loadPlugin() -> c
-    105:114:void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
-    118:122:boolean hasPermission() -> d
-    126:130:void requestPermission() -> e
-    133:140:void jumpToPluginActivity() -> a
-    144:146:void onDestroy() -> onDestroy
-    24:24:com.xpf.android.virtualapk.download.DownloadService$DownloadBinder access$002(com.xpf.android.virtualapk.MainActivity,com.xpf.android.virtualapk.download.DownloadService$DownloadBinder) -> a
-    24:24:com.xpf.android.virtualapk.download.DownloadService$DownloadBinder access$000(com.xpf.android.virtualapk.MainActivity) -> a
+    android.widget.Button btnTestCP -> h
+    android.content.ServiceConnection connection -> i
+    28:38:void <init>() -> <init>
+    53:70:void onCreate(android.os.Bundle) -> onCreate
+    73:93:void initListener() -> b
+    96:109:void testContentProvider() -> c
+    112:129:void loadPlugin() -> d
+    133:142:void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
+    146:150:boolean hasPermission() -> e
+    154:158:void requestPermission() -> f
+    161:168:void jumpToPluginActivity() -> a
+    172:174:void onDestroy() -> onDestroy
+    28:28:com.xpf.android.virtualapk.download.DownloadService$DownloadBinder access$002(com.xpf.android.virtualapk.MainActivity,com.xpf.android.virtualapk.download.DownloadService$DownloadBinder) -> a
+    28:28:com.xpf.android.virtualapk.download.DownloadService$DownloadBinder access$000(com.xpf.android.virtualapk.MainActivity) -> a
+    28:28:void access$100(com.xpf.android.virtualapk.MainActivity) -> b
 com.xpf.android.virtualapk.MainActivity$1 -> com.xpf.android.virtualapk.MainActivity$1:
     com.xpf.android.virtualapk.MainActivity this$0 -> a
-    33:33:void <init>(com.xpf.android.virtualapk.MainActivity) -> <init>
-    36:38:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
-    42:43:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+    38:38:void <init>(com.xpf.android.virtualapk.MainActivity) -> <init>
+    41:43:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    47:48:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
 com.xpf.android.virtualapk.MainActivity$2 -> com.xpf.android.virtualapk.MainActivity$2:
     com.xpf.android.virtualapk.MainActivity this$0 -> a
-    67:67:void <init>(com.xpf.android.virtualapk.MainActivity) -> <init>
-    70:71:void onClick(android.view.View) -> onClick
+    73:73:void <init>(com.xpf.android.virtualapk.MainActivity) -> <init>
+    76:77:void onClick(android.view.View) -> onClick
 com.xpf.android.virtualapk.MainActivity$3 -> com.xpf.android.virtualapk.MainActivity$3:
     com.xpf.android.virtualapk.MainActivity this$0 -> a
-    73:73:void <init>(com.xpf.android.virtualapk.MainActivity) -> <init>
-    76:79:void onClick(android.view.View) -> onClick
+    79:79:void <init>(com.xpf.android.virtualapk.MainActivity) -> <init>
+    82:85:void onClick(android.view.View) -> onClick
+com.xpf.android.virtualapk.MainActivity$4 -> com.xpf.android.virtualapk.MainActivity$4:
+    com.xpf.android.virtualapk.MainActivity this$0 -> a
+    87:87:void <init>(com.xpf.android.virtualapk.MainActivity) -> <init>
+    90:91:void onClick(android.view.View) -> onClick
 com.xpf.android.virtualapk.MyApplication -> com.xpf.android.virtualapk.MyApplication:
     java.lang.String TAG -> a
     13:13:void <init>() -> <init>
@@ -23099,6 +23106,7 @@ com.xpf.android.virtualapk.R$id -> com.xpf.android.virtualapk.R$id:
     int bottom -> bottom
     int btnDownload -> btnDownload
     int btnJump -> btnJump
+    int btnTestCP -> btnTestCP
     int buttonPanel -> buttonPanel
     int center -> center
     int center_horizontal -> center_horizontal
@@ -23219,7 +23227,7 @@ com.xpf.android.virtualapk.R$integer -> com.xpf.android.virtualapk.R$integer:
     int cancel_button_image_alpha -> cancel_button_image_alpha
     int config_tooltipAnimTime -> config_tooltipAnimTime
     int status_bar_notification_info_maxnum -> status_bar_notification_info_maxnum
-    3128:3128:void <init>() -> <init>
+    3129:3129:void <init>() -> <init>
 com.xpf.android.virtualapk.R$layout -> com.xpf.android.virtualapk.R$layout:
     int abc_action_bar_title_item -> abc_action_bar_title_item
     int abc_action_bar_up_container -> abc_action_bar_up_container
@@ -23260,11 +23268,11 @@ com.xpf.android.virtualapk.R$layout -> com.xpf.android.virtualapk.R$layout:
     int select_dialog_multichoice_material -> select_dialog_multichoice_material
     int select_dialog_singlechoice_material -> select_dialog_singlechoice_material
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
-    3135:3135:void <init>() -> <init>
+    3136:3136:void <init>() -> <init>
 com.xpf.android.virtualapk.R$mipmap -> com.xpf.android.virtualapk.R$mipmap:
     int ic_launcher -> ic_launcher
     int ic_launcher_round -> ic_launcher_round
-    3176:3176:void <init>() -> <init>
+    3177:3177:void <init>() -> <init>
 com.xpf.android.virtualapk.R$string -> com.xpf.android.virtualapk.R$string:
     int abc_action_bar_home_description -> abc_action_bar_home_description
     int abc_action_bar_up_description -> abc_action_bar_up_description
@@ -23308,7 +23316,7 @@ com.xpf.android.virtualapk.R$string -> com.xpf.android.virtualapk.R$string:
     int app_name -> app_name
     int search_menu_title -> search_menu_title
     int status_bar_notification_info_overflow -> status_bar_notification_info_overflow
-    3180:3180:void <init>() -> <init>
+    3181:3181:void <init>() -> <init>
 com.xpf.android.virtualapk.R$style -> com.xpf.android.virtualapk.R$style:
     int AlertDialog_AppCompat -> AlertDialog_AppCompat
     int AlertDialog_AppCompat_Light -> AlertDialog_AppCompat_Light
@@ -23657,7 +23665,7 @@ com.xpf.android.virtualapk.R$style -> com.xpf.android.virtualapk.R$style:
     int Widget_Compat_NotificationActionContainer -> Widget_Compat_NotificationActionContainer
     int Widget_Compat_NotificationActionText -> Widget_Compat_NotificationActionText
     int Widget_Support_CoordinatorLayout -> Widget_Support_CoordinatorLayout
-    3224:3224:void <init>() -> <init>
+    3225:3225:void <init>() -> <init>
 com.xpf.android.virtualapk.R$styleable -> com.xpf.android.virtualapk.R$styleable:
     int[] ActionBar -> ActionBar
     int[] ActionBarLayout -> ActionBarLayout
@@ -24265,8 +24273,8 @@ com.xpf.android.virtualapk.R$styleable -> com.xpf.android.virtualapk.R$styleable
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    3573:3573:void <init>() -> <init>
-    3641:12658:void <clinit>() -> <clinit>
+    3574:3574:void <init>() -> <init>
+    3642:12659:void <clinit>() -> <clinit>
 com.xpf.android.virtualapk.download.DownloadListener -> com.xpf.android.virtualapk.download.a:
     void onProgress(int) -> a
     void onSuccess() -> a
