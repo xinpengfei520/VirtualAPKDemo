@@ -161,9 +161,14 @@ public class MainActivity extends AppCompatActivity {
         if (PluginManager.getInstance(this).getLoadedPlugin(PLUGIN_PACKAGE_NAME) == null) {
             Toast.makeText(this, "Plugin not loaded!", Toast.LENGTH_SHORT).show();
         } else {
-            Intent intent = new Intent();
-            intent.setClassName(PLUGIN_PACKAGE_NAME, PLUGIN_PACKAGE_NAME + ".PluginActivity");
-            startActivity(intent);
+            try {
+                Intent intent = new Intent();
+                intent.setClassName(PLUGIN_PACKAGE_NAME, PLUGIN_PACKAGE_NAME + ".aidl.BookManagerActivity");
+                startActivity(intent);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e(TAG, "onError:" + e.getMessage());
+            }
         }
     }
 

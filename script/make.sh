@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 ./gradlew clean assemblePlugin
 adb push app/build/outputs/apk/app-release.apk /sdcard/plugin.apk
 adb shell am force-stop com.xpf.android.virtualapk

@@ -22383,8 +22383,8 @@ com.xpf.android.virtualapk.MainActivity -> com.xpf.android.virtualapk.MainActivi
     133:142:void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
     146:150:boolean hasPermission() -> e
     154:158:void requestPermission() -> f
-    161:168:void jumpToPluginActivity() -> a
-    172:174:void onDestroy() -> onDestroy
+    161:173:void jumpToPluginActivity() -> a
+    177:179:void onDestroy() -> onDestroy
     28:28:com.xpf.android.virtualapk.download.DownloadService$DownloadBinder access$002(com.xpf.android.virtualapk.MainActivity,com.xpf.android.virtualapk.download.DownloadService$DownloadBinder) -> a
     28:28:com.xpf.android.virtualapk.download.DownloadService$DownloadBinder access$000(com.xpf.android.virtualapk.MainActivity) -> a
     28:28:void access$100(com.xpf.android.virtualapk.MainActivity) -> b
