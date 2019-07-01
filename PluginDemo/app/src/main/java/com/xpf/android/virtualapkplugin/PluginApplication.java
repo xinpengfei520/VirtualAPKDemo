@@ -4,7 +4,9 @@ import android.app.Application;
 import android.os.Process;
 import android.util.Log;
 
+import com.xpf.android.virtualapkplugin.binderpool.BinderPool;
 import com.xpf.android.virtualapkplugin.utils.MyUtils;
+import com.xpf.android.virtualapkplugin.utils.RunUtil;
 
 /**
  * Created by x-sir on 2019-06-29 :)
@@ -20,17 +22,16 @@ public class PluginApplication extends Application {
         String processName = MyUtils.getProcessName(getApplicationContext(), Process.myPid());
         Log.d(TAG, "PluginApplication start, process name:" + processName);
 
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                doWorkInBackground();
-            }
-        }).start();
+        //doWorkInBackground();
     }
 
     private void doWorkInBackground() {
         // init binder pool
-        //BinderPool.getInstance(getApplicationContext());
+        RunUtil.getThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                BinderPool.getInstance(getApplicationContext());
+            }
+        });
     }
 }

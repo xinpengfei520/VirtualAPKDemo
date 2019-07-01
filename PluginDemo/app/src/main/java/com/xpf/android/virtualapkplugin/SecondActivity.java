@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import com.xpf.android.virtualapkplugin.model.User;
 import com.xpf.android.virtualapkplugin.utils.MyConstants;
 import com.xpf.android.virtualapkplugin.utils.MyUtils;
+import com.xpf.android.virtualapkplugin.utils.RunUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -53,7 +54,7 @@ public class SecondActivity extends Activity {
     }
 
     private void recoverFromFile() {
-        new Thread(new Runnable() {
+        RunUtil.getThreadPool().execute(new Runnable() {
 
             @Override
             public void run() {
@@ -75,6 +76,6 @@ public class SecondActivity extends Activity {
                     }
                 }
             }
-        }).start();
+        });
     }
 }

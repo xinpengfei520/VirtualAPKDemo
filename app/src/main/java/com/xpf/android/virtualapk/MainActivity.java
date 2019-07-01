@@ -5,6 +5,8 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,6 +19,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.didi.virtualapk.PluginManager;
+import com.didi.virtualapk.internal.LoadedPlugin;
+import com.didi.virtualapk.internal.PluginContentResolver;
 import com.xpf.android.virtualapk.download.DownloadService;
 
 import java.io.File;
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private DownloadService.DownloadBinder downloadBinder;
     private Button btnJump;
     private Button btnDownload;
+    private Button btnTestCP;
     private ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -50,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnJump = findViewById(R.id.btnJump);
         btnDownload = findViewById(R.id.btnDownload);
+        btnTestCP = findViewById(R.id.btnTestCP);
 
         initListener();
 
@@ -78,6 +84,28 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        btnTestCP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                testContentProvider();
+            }
+        });
+    }
+
+    private void testContentProvider() {
+        Uri bookUri = Uri.parse("content://" + PLUGIN_PACKAGE_NAME + ".book.provider/book");
+        LoadedPlugin plugin = PluginManager.getInstance(this).getLoadedPlugin(PLUGIN_PACKAGE_NAME);
+        bookUri = PluginContentResolver.wrapperUri(plugin, bookUri);
+
+        Cursor bookCursor = getContentResolver().query(bookUri, new String[]{"_id", "name"}, null, null, null);
+        if (bookCursor != null) {
+            while (bookCursor.moveToNext()) {
+                int bookId = bookCursor.getInt(0);
+                String bookName = bookCursor.getString(1);
+                Log.d(TAG, "query book:" + bookId + ", " + bookName);
+            }
+            bookCursor.close();
+        }
     }
 
     private void loadPlugin() {
