@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.xpf.android.virtualapkplugin">
+
+    <permission
+        android:name="com.xpf.android.virtualapkplugin.permission.ACCESS_BOOK_SERVICE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.xpf.android.virtualapkplugin.PROVIDER"
+        android:protectionLevel="normal" />
+
+    <uses-permission android:name="com.didi.virtualapk.demo.PROVIDER" />
+    <uses-permission android:name="com.didi.virtualapk.demo.permission.ACCESS_BOOK_SERVICE" />
+
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
 
     <application
         android:name=".PluginApplication"
@@ -9,19 +47,86 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <service
-            android:name=".aidl.BookManagerService"
-            android:enabled="true"
-            android:exported="true"
-            android:process=":remote" />
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".aidl.BookManagerActivity" />
-        <activity android:name=".PluginActivity">
+        <activity android:name=".aidl.BookManagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.PluginActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:configChanges="screenLayout"
+            android:label="B"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".ThirdActivity"
+            android:configChanges="screenLayout"
+            android:label="C" />
+        <activity android:name=".messenger.MessengerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".messenger.MessengerService"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.didi.MessengerService.launch" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".aidl.BookManagerService"
+            android:process=":remote"/>
+
+        <activity android:name=".provider.ProviderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category._LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".provider.BookProvider"
+            android:authorities="com.xpf.android.virtualapkplugin.book.provider"
+            android:permission="com.xpf.android.virtualapkplugin.PROVIDER"
+            android:process=":provider"/>
+
+        <service
+            android:name=".socket.TCPServerService"
+            android:process=":remote" />
+
+        <activity
+            android:name=".socket.TCPClientActivity"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category._LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".binderpool.BinderPoolService"
+            android:process=":remote" />
+
+        <activity android:name=".binderpool.BinderPoolActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category._LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

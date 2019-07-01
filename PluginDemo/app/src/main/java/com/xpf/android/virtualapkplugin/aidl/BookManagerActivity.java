@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.xpf.android.virtualapkplugin.R;
+import com.xpf.android.virtualapkplugin.activity.PluginActivity;
 
 import java.util.List;
 
@@ -102,6 +103,7 @@ public class BookManagerActivity extends AppCompatActivity {
     }
 
     public void onButton1Click(View v) {
-
+        Intent intent = new Intent(this, PluginActivity.class);
+        startActivity(intent);
     }
 }

@@ -19,5 +19,18 @@ public class PluginApplication extends Application {
         super.onCreate();
         String processName = MyUtils.getProcessName(getApplicationContext(), Process.myPid());
         Log.d(TAG, "PluginApplication start, process name:" + processName);
+
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                doWorkInBackground();
+            }
+        }).start();
+    }
+
+    private void doWorkInBackground() {
+        // init binder pool
+        //BinderPool.getInstance(getApplicationContext());
     }
 }
